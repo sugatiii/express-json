@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col">
+        <h1 class="mt-5">Daftar Contact</h1>
+        <% if (msg.length>=1) { %>
+          <div class="alert alert-success mt-3" role="alert">
+            <%= msg %> 
+          </div>
+        <% } %>
+        <div class="d-flex justify-content-start mt-3 mb-3">
+            <a href="/tambah" class="btn btn-success rounded-pill">Tambah data</a>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Email</th>
+                <th scope="col">NO_HP</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% contacts.forEach((contact,i )=> { %>
+                    <tr>
+                      <th scope="row"><%=  ++i %> </th>
+                      <td><%= contact.nama %> </td>
+                      <td><%= contact.email %> </td>
+                      <td><a href="/contact/<%=contact.nama%>" class="btn btn-success rounded-pill"><i class="bi bi-info-lg"></i>detail</a></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+          </table>
+    </div>
+</div>
